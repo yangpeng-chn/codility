@@ -35,10 +35,12 @@ Similar logic with solution 1, but without extra space.
 1. Change original array to put A[i] on A[A[i] - 1], i.e. 1:A[0], 2:A[1]
 2. Only care about the numbers >=1 and <=n, i.e. if n = 4 => 1,2,3,4
 
+We can not replace `nums[nums[i] - 1] != nums[i])` with `nums[i] != i + 1`, e.g. [1,1]
+
 ```
 3 4 -1 1
 n = 4
-i = 0, A[3-2] != A[0] => -1 4 3 1 (put 3 at correct position)
+i = 0, A[3-1] != A[0] => -1 4 3 1 (put 3 at correct position)
 i = 1, A[4-1] != A[1] => -1 1 3 4 (put 4 at correct position)
        A[1-1] != A[1] => 1 -1 3 4 (put 1 at correct position)
 i = 2, A[3-1] == A[2] => do nothing
